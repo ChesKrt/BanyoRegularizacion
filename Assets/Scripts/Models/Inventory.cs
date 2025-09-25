@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public class Inventory
 {
-    public string name;
-    public List<Collection> objectList;
+    private string _name;
+    private List<Collection> _objectList;
 
     public Inventory(string name, List<Collection> objectList)
     {
-        this.name = name;
-        this.objectList = objectList;
+        this._name = name;
+        this._objectList = objectList;
     }
 }

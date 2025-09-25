@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Collection
 {
-    string name;
-    int cost;
+    private string _name;
+    private int _cost;
 
     public Collection(string name, int cost)
     {
-        this.name = name;
-        this.cost = cost;
+        this._name = name;
+        this._cost = cost;
     }
 }

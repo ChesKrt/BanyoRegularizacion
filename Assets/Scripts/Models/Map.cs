@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Map
 {
-  public string name;
-  public Vector2Int originCoordinate;
-  public Vector2Int size;
+  private string _name;
+  private Vector2Int _originCoordinate;
+  private Vector2Int _size;
 
    public Map(string name, Vector2Int originCoordinate, Vector2Int size)
    {
-      this.name = name;
-      this.originCoordinate = originCoordinate;
-      this.size = size;
+      this._name = name;
+      this._originCoordinate = originCoordinate;
+      this._size = size;
    } 
 }
