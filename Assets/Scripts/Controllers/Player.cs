@@ -11,9 +11,24 @@ public class Player : Character
     private Dictionary<string, Inventory> _inventory = new Dictionary<string, Inventory>();
     private Stats _playerStats;
 
-    private void Awake()
+    public Player ()
     {
-        Instance = this;
+
+    }
+
+    public List<Ability> Abilities
+    {
+        get { return _ability; }
+    }
+
+    public Dictionary<string, Inventory> Inventory
+    {
+        get { return _inventory; }
+    }
+
+    public Stats Stat
+    {
+        get { return _playerStats; }
     }
 
     public void PlayerMovement() {}

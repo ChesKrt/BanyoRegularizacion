@@ -62,6 +62,11 @@ public class MapController : MonoBehaviour
     {
         Map newMap = new Map("Bosque", mapOrigin[0], mapSizes[0], map, obstacleHeights, obstacleLenght);
         List<Vector3Int> coordinates = newMap.GenerateGroundCoordinates();
+        List<Vector3Int> objectcoordinates = newMap.SpawnObjects();
+
+        CollectableController collectableController = FindAnyObjectByType<CollectableController>();
+        collectableController.SpawnObjects(map, objectcoordinates);
+
         newMap.Render(tiles[0], coordinates);
         for (int i = 0; i < obstacleAmount; i++)
         {

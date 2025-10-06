@@ -66,6 +66,23 @@ public class Map
         return platformsCoord;
     }
 
+
+    public List<Vector3Int> SpawnObjects()
+    {
+        List<Vector3Int> objectsSpawn = new List<Vector3Int>();
+
+        for (int x = _originCoordinate.x; x < _originCoordinate.x + _size.x; x++)
+        {
+            for (int y = _originCoordinate.y; y < _originCoordinate.y + _size.y; y++)
+            {
+                objectsSpawn.Add(new Vector3Int(x, y + 1, 0));
+            }
+        }
+
+
+        return objectsSpawn;
+    }
+
     public List<Vector3Int> GenerateCoordinates()
     {
         List<Vector3Int> newCoordinates = new List<Vector3Int>();
