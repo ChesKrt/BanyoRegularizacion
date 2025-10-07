@@ -58,6 +58,9 @@ public class MapController : MonoBehaviour
         GenerateStage(map);
         GenerateStage(map, 1); 
         GenerateStage(map, 2);
+        GenerateStage(map, 3);
+        GenerateStage(map, 4);
+        GenerateStage(map, 5);
 
     }
 

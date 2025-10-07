@@ -244,21 +244,33 @@ MonoBehaviour:
   - {x: 28, y: 10}
   - {x: 10, y: 10}
   - {x: 16, y: 20}
+  - {x: 10, y: 8}
+  - {x: 13, y: 9}
+  - {x: 23, y: 11}
   mapOrigin:
   - {x: -14, y: -8}
   - {x: 14, y: -8}
   - {x: 24, y: -7}
+  - {x: -24, y: -8}
+  - {x: -37, y: -7}
+  - {x: -60, y: -15}
   tiles:
   - {fileID: 11400000, guid: 19da6dc60a60c2944aa31a8e5a500087, type: 2}
   - {fileID: 11400000, guid: 69066b85070b8c04dbb1e456f69d1196, type: 2}
   - {fileID: 11400000, guid: 37a0cddc8964ffc43b9c1cc6bf92a8c7, type: 2}
-  obstacleAmount: 5
+  - {fileID: 11400000, guid: 795206794e9668e4ea03d4fe8ed84508, type: 2}
+  - {fileID: 11400000, guid: c19d2638e7a5d1f418f7c527c09e6dae, type: 2}
+  - {fileID: 11400000, guid: 58fd2dfb687d9a64f8dbd899e8933cca, type: 2}
+  obstacleAmount: 4
   obstacleTiles:
   - {fileID: 11400000, guid: c99beb78b8ab31b41aa01f4346118585, type: 2}
   - {fileID: 11400000, guid: 0b2a8c83848707b47b24e19ee2ae2885, type: 2}
   - {fileID: 11400000, guid: 957a880b35abbf148bbda3da41818da3, type: 2}
+  - {fileID: 11400000, guid: 43371db7b767a664cb63aca1377cdef9, type: 2}
+  - {fileID: 11400000, guid: 8938d7158f6224d4d890d256062d68f5, type: 2}
+  - {fileID: 11400000, guid: 4fe444d433ffa9c4193fcd94fbdc04b7, type: 2}
   obstacleHeights: {x: 2, y: 4}
-  obstacleLenght: 4
+  obstacleLenght: 3
 --- !u!4 &1392762680
 Transform:
   m_ObjectHideFlags: 0
