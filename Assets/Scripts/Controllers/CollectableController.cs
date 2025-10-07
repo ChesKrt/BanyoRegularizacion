@@ -33,8 +33,13 @@ public class CollectableController : MonoBehaviour
         for (int i = 0; i < weaponsCoor.Count && inPlace < amount; i++)
         {
             Vector3 worldPosition = tilemap.GetCellCenterWorld(weaponsCoor[i]);
-            GameObject prefab = collectables[Random.Range(0, collectables.Length)];
-            Instantiate(prefab, worldPosition, Quaternion.identity);
+            print(tilemap.HasTile(weaponsCoor[i]));
+            if (!tilemap.HasTile(weaponsCoor[i]))
+            {
+                GameObject prefab = collectables[Random.Range(0, collectables.Length)];
+                Instantiate(prefab, worldPosition, Quaternion.identity);
+            }
+            
             inPlace++;
         }
     }

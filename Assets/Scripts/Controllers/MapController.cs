@@ -12,7 +12,7 @@ public class MapController : MonoBehaviour
 
     [Header("Obstacles Set")]
     public int obstacleAmount;
-    public Tile obstacleTile;
+    public Tile[] obstacleTiles;
     public Vector2Int obstacleHeights;
     public int obstacleLenght;
 
@@ -38,7 +38,7 @@ public class MapController : MonoBehaviour
 
         Grid gridComponent = grid.GetComponent<Grid>();
         gridComponent.cellLayout = GridLayout.CellLayout.Rectangle;
-        gridComponent.cellSize = new Vector3(0.64f, 0.64f, 1);
+        gridComponent.cellSize = new Vector3(0.15f, 0.15f, 1);
 
         GameObject tileMap = new GameObject();
         tileMap.name = "TileMap";
@@ -53,28 +53,33 @@ public class MapController : MonoBehaviour
 
         tileMap.transform.parent = grid.transform;
 
-        Tilemap map = tileMap.GetComponent<Tilemap>();
+        Tilemap map = tileMap.GetComponent<Tilemap>();       
+
         GenerateStage(map);
+        GenerateStage(map, 1); 
+        GenerateStage(map, 2);
+
     }
 
 
-    private void GenerateStage(Tilemap map)
+    private void GenerateStage(Tilemap map, int origin = 0)
     {
-        Map newMap = new Map("Bosque", mapOrigin[0], mapSizes[0], map, obstacleHeights, obstacleLenght);
+        Map newMap = new Map("Bosque", mapOrigin[origin], mapSizes[origin], map, obstacleHeights, obstacleLenght);
         List<Vector3Int> coordinates = newMap.GenerateGroundCoordinates();
-        List<Vector3Int> objectcoordinates = newMap.SpawnObjects();
-
+        
         CollectableController collectableController = FindAnyObjectByType<CollectableController>();
-        collectableController.SpawnObjects(map, objectcoordinates);
-
-        newMap.Render(tiles[0], coordinates);
+        newMap.Render(tiles[origin], coordinates);
         for (int i = 0; i < obstacleAmount; i++)
         {
             List<Vector3Int> coordPlatforms = newMap.GeneratePlataforms();
             List<Vector3Int> coordObstacles = newMap.GenerateGroundObstacles();
-            newMap.Render(obstacleTile, coordObstacles);
-            newMap.Render(obstacleTile, coordPlatforms);
+            newMap.Render(obstacleTiles[origin], coordObstacles);
+            newMap.Render(obstacleTiles[origin], coordPlatforms);
         }
+
+        List<Vector3Int> objectcoordinates = newMap.SpawnObjects();
+        collectableController.SpawnObjects(map, objectcoordinates);
     }
+    
 
 }
