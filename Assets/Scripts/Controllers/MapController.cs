@@ -38,7 +38,7 @@ public class MapController : MonoBehaviour
 
         Grid gridComponent = grid.GetComponent<Grid>();
         gridComponent.cellLayout = GridLayout.CellLayout.Rectangle;
-        gridComponent.cellSize = new Vector3(0.15f, 0.15f, 1);
+        gridComponent.cellSize = new Vector3(0.18f, 0.18f, 1);
 
         GameObject tileMap = new GameObject();
         tileMap.name = "TileMap";
@@ -55,12 +55,18 @@ public class MapController : MonoBehaviour
 
         Tilemap map = tileMap.GetComponent<Tilemap>();       
 
-        GenerateStage(map);
-        GenerateStage(map, 1); 
-        GenerateStage(map, 2);
-        GenerateStage(map, 3);
-        GenerateStage(map, 4);
-        GenerateStage(map, 5);
+
+        for (int i = 0; i < mapSizes.Count; i++)
+        {
+            GenerateStage(map, i);
+        }
+
+        //GenerateStage(map);
+        //GenerateStage(map, 1); 
+        //GenerateStage(map, 2);
+        //GenerateStage(map, 3);
+        //GenerateStage(map, 4);
+        //GenerateStage(map, 5);
 
     }
 
