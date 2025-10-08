@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public static PlayerController instance { get; private set;}
+    public static PlayerController instance;
     public Player player;
 
     public int health;

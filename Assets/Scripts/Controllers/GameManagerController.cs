@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManagerController : MonoBehaviour
 {
     public static GameManagerController Instance { get; set; }
-    int sceneNumber = 0;
+    private int _sceneNumber = 0;
 
     private void Awake()
     {
@@ -22,8 +22,8 @@ public class GameManagerController : MonoBehaviour
 
     public void ChangeNextScene()
     {
-        sceneNumber++;
-        SceneManager.LoadScene(sceneNumber);
+        _sceneNumber++;
+        SceneManager.LoadScene(_sceneNumber);
     }
 
 }

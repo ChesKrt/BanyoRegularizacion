@@ -47,26 +47,30 @@ public class MapController : MonoBehaviour
         tileMap.AddComponent<Tilemap>();
         tileMap.AddComponent<TilemapRenderer>();
         tileMap.AddComponent<TilemapCollider2D>();
+        tileMap.AddComponent<CompositeCollider2D>();
+
+        Rigidbody2D rigidbody2D = tileMap.GetComponent<Rigidbody2D>();
+
+        rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+        rigidbody2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        rigidbody2D.interpolation = RigidbodyInterpolation2D.Interpolate;
+        rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        TilemapCollider2D tilemapCollider = tileMap.GetComponent<TilemapCollider2D>();
+        tilemapCollider.compositeOperation = Collider2D.CompositeOperation.Merge;
 
         TilemapRenderer tileMapRender = tileMap.GetComponent<TilemapRenderer>();
         tileMapRender.sortOrder = TilemapRenderer.SortOrder.TopRight;
 
         tileMap.transform.parent = grid.transform;
 
-        Tilemap map = tileMap.GetComponent<Tilemap>();       
+        Tilemap map = tileMap.GetComponent<Tilemap>();
 
 
         for (int i = 0; i < mapSizes.Count; i++)
         {
             GenerateStage(map, i);
         }
-
-        //GenerateStage(map);
-        //GenerateStage(map, 1); 
-        //GenerateStage(map, 2);
-        //GenerateStage(map, 3);
-        //GenerateStage(map, 4);
-        //GenerateStage(map, 5);
 
     }
 
@@ -75,7 +79,7 @@ public class MapController : MonoBehaviour
     {
         Map newMap = new Map("Bosque", mapOrigin[origin], mapSizes[origin], map, obstacleHeights, obstacleLenght);
         List<Vector3Int> coordinates = newMap.GenerateGroundCoordinates();
-        
+
         CollectableController collectableController = FindAnyObjectByType<CollectableController>();
         newMap.Render(tiles[origin], coordinates);
         for (int i = 0; i < obstacleAmount; i++)
@@ -89,6 +93,6 @@ public class MapController : MonoBehaviour
         List<Vector3Int> objectcoordinates = newMap.SpawnObjects();
         collectableController.SpawnObjects(map, objectcoordinates);
     }
-    
+
 
 }

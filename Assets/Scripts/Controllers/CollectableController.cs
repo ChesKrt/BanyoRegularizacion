@@ -1,8 +1,6 @@
-using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
-using UnityEngine.InputSystem.iOS;
 
 public class CollectableController : MonoBehaviour
 {
@@ -13,9 +11,6 @@ public class CollectableController : MonoBehaviour
     private void Start()
     {
         Collection sword = new Collection("Wood Sword", 10, collectables[0]);
-
-
-
     }
 
     public void SpawnObjects(Tilemap tilemap, List<Vector3Int> weaponsCoor)
